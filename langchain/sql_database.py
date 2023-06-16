@@ -323,9 +323,10 @@ class SQLDatabase:
             sample_rows_str = ""
 
         return (
-            f"{self._sample_rows_in_table_info} rows from {table.name} table:\n"
-            f"{columns_str}\n"
-            f"{sample_rows_str}"
+#             f"{self._sample_rows_in_table_info} rows from {table.name} table:\n"
+#             f"{columns_str}\n"
+#             f"{sample_rows_str}"
+            f"select * from {table.name}"
         )
 
     def run(self, command: str, fetch: str = "all") -> str:
