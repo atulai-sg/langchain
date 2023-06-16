@@ -300,27 +300,27 @@ class SQLDatabase:
 
     def _get_sample_rows(self, table: Table) -> str:
         # build the select command
-        command = select(table).limit(self._sample_rows_in_table_info)
+#         command = select(table).limit(self._sample_rows_in_table_info)
 
-        # save the columns in string format
-        columns_str = "\t".join([col.name for col in table.columns])
+#         # save the columns in string format
+#         columns_str = "\t".join([col.name for col in table.columns])
 
-        try:
-            # get the sample rows
-            with self._engine.connect() as connection:
-                sample_rows_result = connection.execute(command)  # type: ignore
-                # shorten values in the sample rows
-                sample_rows = list(
-                    map(lambda ls: [str(i)[:100] for i in ls], sample_rows_result)
-                )
+#         try:
+#             # get the sample rows
+#             with self._engine.connect() as connection:
+#                 sample_rows_result = connection.execute(command)  # type: ignore
+#                 # shorten values in the sample rows
+#                 sample_rows = list(
+#                     map(lambda ls: [str(i)[:100] for i in ls], sample_rows_result)
+#                 )
 
-            # save the sample rows in string format
-            sample_rows_str = "\n".join(["\t".join(row) for row in sample_rows])
+#             # save the sample rows in string format
+#             sample_rows_str = "\n".join(["\t".join(row) for row in sample_rows])
 
-        # in some dialects when there are no rows in the table a
-        # 'ProgrammingError' is returned
-        except ProgrammingError:
-            sample_rows_str = ""
+#         # in some dialects when there are no rows in the table a
+#         # 'ProgrammingError' is returned
+#         except ProgrammingError:
+#             sample_rows_str = ""
 
         return (
 #             f"{self._sample_rows_in_table_info} rows from {table.name} table:\n"
