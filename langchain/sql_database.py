@@ -281,14 +281,14 @@ class SQLDatabase:
             has_extra_info = (
                 self._indexes_in_table_info or self._sample_rows_in_table_info
             )
-            if has_extra_info:
-                table_info += "\n\n/*"
-            if self._indexes_in_table_info:
-                table_info += f"\n{self._get_table_indexes(table)}\n"
+#             if has_extra_info:
+#                 table_info += "\n\n/*"
+#             if self._indexes_in_table_info:
+#                 table_info += f"\n{self._get_table_indexes(table)}\n"
 #             if self._sample_rows_in_table_info:
 #                 table_info += f"\n{self._get_sample_rows(table)}\n"
-            if has_extra_info:
-                table_info += "*/"
+#             if has_extra_info:
+#                 table_info += "*/"
             tables.append(table_info)
         final_str = "\n\n".join(tables)
         return final_str
