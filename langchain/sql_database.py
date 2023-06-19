@@ -291,6 +291,7 @@ class SQLDatabase:
 #                 table_info += "*/"
             tables.append(table_info)
         final_str = "\n\n".join(tables)
+        print(final_str) 
         return final_str
 
     def _get_table_indexes(self, table: Table) -> str:
