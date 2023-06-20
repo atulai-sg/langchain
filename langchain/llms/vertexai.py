@@ -88,7 +88,7 @@ class VertexAI(_VertexAICommon, LLM):
         """Validate that the python package exists in environment."""
         cls._try_init_vertexai(values)
         try:
-            from vertexai.preview.language_models import TextGenerationModel
+            from vertexai.preview.language_models import CodeGenerationModel
         except ImportError:
             raise_vertex_import_error()
         tuned_model_name = values.get("tuned_model_name")
